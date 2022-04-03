@@ -39,5 +39,15 @@ export const useStore = defineStore('rarity', {
         99,
       ][state.rarity - 1];
     },
+    rarityName: (state) => {
+      return [
+        'iron',
+        'bronze',
+        'silver',
+        'gold',
+        'platinum',
+        'black',
+      ][state.rarity - 1];
+    },
   },
 });

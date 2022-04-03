@@ -11,5 +11,10 @@
   "rarity-select": "稀有度：",
   "current-level": "目前等級：",
   "exp-to-next-level": "升級還需：",
-  "target-level": "目標等級："
+  "target-level": "目標等級：",
+
+  "table.exp-to-target-level":"還要多少經驗",
+  "table.fodder-exp":"飼料經驗",
+  "table.fodder-bonus":"育成聖靈",
+  "table.fodder-exp-to-target-level":"還要餵多少飼料經驗"
 }

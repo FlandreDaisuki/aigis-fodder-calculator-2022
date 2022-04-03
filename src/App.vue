@@ -5,12 +5,14 @@ import { useStore as useRarityStore } from './stores/rarity';
 
 import RaritySelect from './components/RaritySelect.vue';
 import InputNumber from './components/InputNumber.vue';
+import ResultTable from './components/ResultTable.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
     RaritySelect,
     InputNumber,
+    ResultTable,
   },
   setup() {
     // const { t } = useI18n();
@@ -52,6 +54,7 @@ export default defineComponent({
       input-id="exp-to-next-level"
       :label="t('exp-to-next-level')"
     />
+    <!-- TODO: candidates -->
     <InputNumber
       v-model="targetLevel"
       class="w-30"
@@ -63,7 +66,12 @@ export default defineComponent({
     />
   </div>
   <hr class="my-2">
-
+  <ResultTable
+    class="mx-auto"
+    :current-level="currentLevel"
+    :exp-to-next-level="expToNextLevel"
+    :target-level="targetLevel"
+  />
   <div>{{ rarityStore.rarity }}</div>
   <div>{{ currentLevel }}</div>
   <div>{{ expToNextLevel }}</div>
