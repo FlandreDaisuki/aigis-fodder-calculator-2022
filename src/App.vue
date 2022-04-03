@@ -19,6 +19,7 @@ export default defineComponent({
     const currentLevel = ref(0);
     const expToNextLevel = ref(0);
     const targetLevel = ref(1);
+
     return {
       ...useI18n(),
       rarityStore,
@@ -57,6 +58,8 @@ export default defineComponent({
       input-id="target-level"
       :label="t('target-level')"
       :candidates="[30,70,80,99]"
+      :min="1"
+      :max="rarityStore.maxTargetLevel"
     />
   </div>
   <hr class="my-2">
