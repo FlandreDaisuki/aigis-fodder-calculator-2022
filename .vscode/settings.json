@@ -1,14 +1,25 @@
 {
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   "cSpell.words": [
+    "Aigis",
     "demi",
+    "pinia",
     "unocss",
     "vueuse"
   ],
   "cSpell.ignoreWords": [
     "antfu",
-    "intlify"
+    "intlify",
+    "unplugin"
   ],
   "i18n-ally.localesPaths": [
     "locales"
+  ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "vue"
   ]
 }

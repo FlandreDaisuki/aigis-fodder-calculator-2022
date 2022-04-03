@@ -1,3 +1,15 @@
 {
-  "title": "Aigis 經驗值計算機 2022"
+  "title": "Aigis 千年戰爭 經驗值計算機 2022",
+
+  "rarity.iron": "☆1 鐵",
+  "rarity.bronze": "☆2 銅",
+  "rarity.silver": "☆3 銀",
+  "rarity.gold": "☆4 金",
+  "rarity.platinum": "☆5 白",
+  "rarity.black": "☆6 黑",
+
+  "rarity-select": "稀有度：",
+  "current-level": "目前等級：",
+  "exp-to-next-level": "升級還需：",
+  "target-level": "目標等級："
 }
