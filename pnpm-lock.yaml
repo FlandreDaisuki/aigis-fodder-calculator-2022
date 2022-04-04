@@ -8,6 +8,7 @@ specifiers:
   '@vueuse/core': ^8.2.3
   eslint: ^8.12.0
   eslint-plugin-vue: ^8.5.0
+  lodash: ^4.17.21
   pinia: ^2.0.13
   pnpm: ^6.32.4
   unocss: ^0.30.8
@@ -21,6 +22,7 @@ specifiers:
 
 dependencies:
   '@vueuse/core': 8.2.3_vue@3.2.31
+  lodash: 4.17.21
   pinia: 2.0.13_vue@3.2.31
   vue: 3.2.31
   vue-demi: 0.12.5_vue@3.2.31
@@ -1415,7 +1417,6 @@ packages:
 
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: true
 
   /loupe/2.3.4:
     resolution: {integrity: sha512-OvKfgCC2Ndby6aSTREl5aCCPTNIzlDfQZvZxNUrBrihDhL3xcrYegTblhmEiCrg2kKQz4XsFIaemE5BF4ybSaQ==}

@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { computed, defineComponent, ref } from 'vue';
+import { computed, defineComponent, toRef } from 'vue';
 
 export default defineComponent({
   props: {
@@ -65,18 +65,18 @@ export default defineComponent({
   },
   emits: ['update:modelValue'],
   setup(props, { emit }) {
-    const inputValue = ref(props.modelValue);
+    const inputValue = toRef(props, 'modelValue');
     const hasCandidates = computed(() => props.candidates.length > 0);
     const dataListId = computed(() => hasCandidates.value ? `${props.inputId}-list` : '');
 
     const validateAndSubmit = ($event) => {
       const n = $event.target.valueAsNumber;
-      if (Number.isNaN(n) || n < props.min) {
-        inputValue.value = props.min;
-        emit('update:modelValue', props.min);
-      } else if (n > props.max){
+      if (Number.isNaN(n) || n > props.max) {
         inputValue.value = props.max;
         emit('update:modelValue', props.max);
+      } else if (n < props.min) {
+        inputValue.value = props.min;
+        emit('update:modelValue', props.min);
       } else {
         emit('update:modelValue', n);
       }

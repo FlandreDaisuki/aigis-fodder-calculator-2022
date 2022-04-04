@@ -1,6 +1,7 @@
 <script>
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { clamp } from 'lodash';
 import { useStore as useRarityStore } from './stores/rarity';
 import { useStore as useFodderStore } from './stores/fodder';
 
@@ -28,7 +29,12 @@ export default defineComponent({
 
     const currentLevel = ref(0);
     const expToNextLevel = ref(0);
-    const targetLevel = ref(1);
+
+    const targetLevel = ref(rarityStore.maxTargetLevel);
+    watch(() => rarityStore.rarity, () => {
+      targetLevel.value = clamp(rarityStore.maxTargetLevel, 1, rarityStore.maxTargetLevel);
+    });
+
     const hasBonus = ref(false);
     const isDisabledFodderHidden = ref(false);
     const isFodderDisabled = (fodder) => {
