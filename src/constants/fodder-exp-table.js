@@ -18,6 +18,12 @@ export const blackBucket = Object.freeze({
   exp: 40000,
 });
 
+export const silverSprite = Object.freeze({
+  name: 'silver-sprite',
+  exp: 4000,
+  rarity: 3,
+});
+
 export const microGoldSprite = Object.freeze({
   name: 'micro-gold-sprite',
   exp: 1750,
@@ -51,6 +57,7 @@ export default Object.freeze({
   matchedFairy,
   whiteBucket,
   blackBucket,
+  silverSprite,
   microGoldSprite,
   goldSpriteOrLootSprite,
   platinumSprite,
