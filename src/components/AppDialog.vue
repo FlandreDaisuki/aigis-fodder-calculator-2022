@@ -21,12 +21,14 @@
       <footer class="flex justify-end gap-2">
         <button
           type="button"
+          class="px-2 py-0.5 bg-gray-200 rounded shadow"
           @click="cancel"
         >
           {{ t('cancel') }}
         </button>
         <button
           type="button"
+          class="px-2 py-0.5 bg-blue-200 rounded shadow"
           @click="submit"
         >
           {{ t('submit') }}

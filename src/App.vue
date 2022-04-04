@@ -175,7 +175,7 @@ export default defineComponent({
       </template>
     </template>
     <button
-      class="col-span-2 px-4 py-2 mx-auto bg-blue-200 rounded"
+      class="col-span-2 px-4 py-2 mx-auto bg-blue-200 rounded shadow"
       @click="isCustomFodderDialogShown = true"
     >
       {{ t('add-custom-fodder') }}
