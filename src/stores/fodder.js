@@ -50,13 +50,15 @@ export const useStore = defineStore('fodder', {
   },
   actions: {
     appendCustomFodder({ name, exp }) {
-      const fodder = {
+      this.customFodders.push({
         id: hash(name),
         exp,
         nameDisplay: name,
         count: 0,
-      };
-      this.customFodders.push(fodder);
+      });
+    },
+    removeCustomFodder({ id }) {
+      this.customFodders = this.customFodders.filter((fodder) => fodder.id !== id);
     },
     incFodder(fodder) {
       const found = this.sortedFodders.find((f) => f.id === fodder.id);

@@ -12,6 +12,7 @@ import InputCheckbox from './components/InputCheckbox.vue';
 import ResultTable from './components/ResultTable.vue';
 import IcRoundExposurePlus1 from './components/IcRoundExposurePlus1.vue';
 import IcRoundExposureNeg1 from './components/IcRoundExposureNeg1.vue';
+import MdiTrashCan from './components/MdiTrashCan.vue';
 import AppDialog from './components/AppDialog.vue';
 
 export default defineComponent({
@@ -24,6 +25,7 @@ export default defineComponent({
     IcRoundExposurePlus1,
     IcRoundExposureNeg1,
     AppDialog,
+    MdiTrashCan,
   },
   setup() {
     const rarityStore = useRarityStore();
@@ -57,6 +59,8 @@ export default defineComponent({
       fodderStore.appendCustomFodder({ name, exp });
     };
 
+    const isCustomFodder = (fodder) => Boolean(fodder.nameDisplay);
+
     return {
       ...useI18n(),
       rarityStore,
@@ -69,6 +73,7 @@ export default defineComponent({
       isFodderDisabled,
       isCustomFodderDialogShown,
       addCustomFodder,
+      isCustomFodder,
     };
   },
 });
@@ -133,7 +138,17 @@ export default defineComponent({
       :key="fodder.id"
     >
       <template v-if="!shouldHideDisabledFodders || !isFodderDisabled(fodder)">
-        <label :for="fodder.id">{{ fodder.nameDisplay ?? t(fodder.name) }} ({{ fodder.exp }})</label>
+        <label
+          :for="fodder.id"
+          class="inline-flex"
+        >
+          <MdiTrashCan
+            v-if="isCustomFodder(fodder)"
+            class="inline-block h-6 w-6 mr-4 text-red-500 hover:text-red-400 hover:cursor-pointer"
+            @click="fodderStore.removeCustomFodder(fodder)"
+          />
+          <span>{{ fodder.nameDisplay ?? t(fodder.name) }} ({{ fodder.exp }})</span>
+        </label>
         <div class="inline-flex items-center space-x-2">
           <button
             class="bg-white border border-gray-400 enabled:hover:border-gray-500 disabled:text-gray-500 p-2 rounded shadow touch-action-none"
