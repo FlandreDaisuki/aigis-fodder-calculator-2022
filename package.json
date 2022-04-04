@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "vite build",
-    "dev": "vite --port 3333 --open",
+    "dev": "vite --host --port 4000 --open",
     "lint": "eslint .",
     "preview": "vite preview",
     "preview-https": "serve dist",
