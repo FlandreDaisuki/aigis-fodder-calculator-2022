@@ -1,5 +1,5 @@
 <template>
-  <table class="text-center">
+  <table class="text-center text-sm sm:text-base">
     <thead>
       <tr>
         <th> {{ t('table.exp-to-target-level') }}</th>
