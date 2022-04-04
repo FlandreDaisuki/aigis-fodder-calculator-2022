@@ -20,14 +20,21 @@
   "table.fodder-bonus":"育成聖靈",
   "table.fodder-exp-to-target-level":"還要餵多少飼料經驗",
 
-  "mismatched-fairy": "異色聖靈 (500)",
-  "matched-fairy": "同色聖靈 (1000)",
-  "white-bucket": "白胖 (5000)",
-  "black-bucket": "黑胖 (40000)",
-  "silver-sprite": "小銀祝 (4000)",
-  "micro-gold-sprite": "微金祝 (1750)",
-  "gold-sprite-or-loot-sprite": "小金祝或轉蛋祝 (18000)",
-  "platinum-sprite": "小白祝 (19000)",
-  "black-sprite": "小黑祝 (20000)",
-  "fodder-sprite": "小祝聖 (10000)"
+  "mismatched-fairy": "異色聖靈",
+  "matched-fairy": "同色聖靈",
+  "white-bucket": "白胖",
+  "black-bucket": "黑胖",
+  "silver-sprite": "小銀祝",
+  "micro-gold-sprite": "微金祝",
+  "gold-sprite-or-loot-sprite": "小金祝或轉蛋祝",
+  "platinum-sprite": "小白祝",
+  "black-sprite": "小黑祝",
+  "fodder-sprite": "小祝聖",
+
+  "cancel": "取消",
+  "submit": "確定",
+  "add-custom-fodder": "新增自訂飼料",
+
+  "dialog.custom-fodder.exp": "經驗：",
+  "dialog.custom-fodder.name": "名字："
 }

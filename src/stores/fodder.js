@@ -1,8 +1,23 @@
+import { useStorage } from '@vueuse/core';
 import { defineStore } from 'pinia';
 // import { useI18n } from 'vue-i18n';
 import FODDER_EXP_TABLE from '../constants/fodder-exp-table';
 
-const hash = (text) => [...btoa(String(text))]
+/** https://developer.mozilla.org/en-US/docs/Web/API/btoa#unicode_strings */
+const toBinary = (text) => {
+  const codeUnits = new Uint16Array(text.length);
+  for (let i = 0; i < codeUnits.length; i++) {
+    codeUnits[i] = text.charCodeAt(i);
+  }
+  const charCodes = new Uint8Array(codeUnits.buffer);
+  let result = '';
+  for (let i = 0; i < charCodes.byteLength; i++) {
+    result += String.fromCharCode(charCodes[i]);
+  }
+  return result;
+};
+
+const hash = (text) => [...btoa(toBinary(text))]
   .map((c, i) => c.charCodeAt(0) * (i + 3))
   .reduce((a, b) => a * b, 1)
   .toString(16)
@@ -17,33 +32,40 @@ export const useStore = defineStore('fodder', {
       ...fodder,
       count: 0,
     })),
+    customFodders: useStorage('custom-fodders', [], void 0, {
+      serializer: {
+        read: (v) => (v ? JSON.parse(v) : []).map((fodder) => Object.assign(fodder, { count: 0 })),
+        write: (v) => JSON.stringify(v),
+      },
+    }),
   }),
   getters: {
     sortedFodders: (state) => {
-      return state.fodders.sort((a, b) => a.exp - b.exp);
+      return state.fodders.concat(state.customFodders).sort((a, b) => a.exp - b.exp);
     },
 
-    sumOfFodderExp: (state) => {
-      return state.fodders.reduce((sum, fodder) => sum + fodder.exp * fodder.count, 0);
+    sumOfFodderExp() {
+      return this.sortedFodders.reduce((sum, fodder) => sum + fodder.exp * fodder.count, 0);
     },
   },
   actions: {
-    appendCustomFodder(fodderLike) {
+    appendCustomFodder({ name, exp }) {
       const fodder = {
-        id: hash(fodderLike.name),
-        ...fodderLike,
+        id: hash(name),
+        exp,
+        nameDisplay: name,
         count: 0,
       };
-      this.fodders.push(fodder);
+      this.customFodders.push(fodder);
     },
     incFodder(fodder) {
-      const found = this.fodders.find((f) => f.id === fodder.id);
+      const found = this.sortedFodders.find((f) => f.id === fodder.id);
       if (found) {
         found.count += 1;
       }
     },
     decFodder(fodder) {
-      const found = this.fodders.find((f) => f.id === fodder.id);
+      const found = this.sortedFodders.find((f) => f.id === fodder.id);
       if (found) {
         found.count = Math.max(0, found.count - 1);
       }

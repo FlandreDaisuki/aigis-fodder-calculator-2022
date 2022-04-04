@@ -12,6 +12,7 @@ import InputCheckbox from './components/InputCheckbox.vue';
 import ResultTable from './components/ResultTable.vue';
 import IcRoundExposurePlus1 from './components/IcRoundExposurePlus1.vue';
 import IcRoundExposureNeg1 from './components/IcRoundExposureNeg1.vue';
+import AppDialog from './components/AppDialog.vue';
 
 export default defineComponent({
   name: 'App',
@@ -22,6 +23,7 @@ export default defineComponent({
     ResultTable,
     IcRoundExposurePlus1,
     IcRoundExposureNeg1,
+    AppDialog,
   },
   setup() {
     const rarityStore = useRarityStore();
@@ -41,6 +43,20 @@ export default defineComponent({
       return Number.isInteger(fodder.rarity) && fodder.rarity !== rarityStore.rarity;
     };
 
+    const isCustomFodderDialogShown = ref(false);
+    const addCustomFodder = (fodder) => {
+      isCustomFodderDialogShown.value = false;
+
+      const name = String(fodder?.name ?? '').trim();
+      if (!name) { return; }
+
+      const exp = Number(fodder?.exp);
+      if (Number.isNaN(exp) || !Number.isFinite(exp) || !Number.isSafeInteger(exp)) { return; }
+      if (exp < 0) { return; }
+
+      fodderStore.appendCustomFodder({ name, exp });
+    };
+
     return {
       ...useI18n(),
       rarityStore,
@@ -51,6 +67,8 @@ export default defineComponent({
       hasBonus,
       shouldHideDisabledFodders,
       isFodderDisabled,
+      isCustomFodderDialogShown,
+      addCustomFodder,
     };
   },
 });
@@ -115,7 +133,7 @@ export default defineComponent({
       :key="fodder.id"
     >
       <template v-if="!shouldHideDisabledFodders || !isFodderDisabled(fodder)">
-        <label :for="fodder.id">{{ t(fodder.name) }}</label>
+        <label :for="fodder.id">{{ fodder.nameDisplay ?? t(fodder.name) }} ({{ fodder.exp }})</label>
         <div class="inline-flex items-center space-x-2">
           <button
             class="bg-white border border-gray-400 enabled:hover:border-gray-500 disabled:text-gray-500 p-2 rounded shadow touch-action-none"
@@ -141,7 +159,41 @@ export default defineComponent({
         </div>
       </template>
     </template>
+    <button
+      class="col-span-2 px-4 py-2 mx-auto bg-blue-200 rounded"
+      @click="isCustomFodderDialogShown = true"
+    >
+      {{ t('add-custom-fodder') }}
+    </button>
   </fieldset>
+
+  <AppDialog
+    ref="customFodderDialogEl"
+    v-model="isCustomFodderDialogShown"
+    @submit="addCustomFodder"
+    @cancel="isCustomFodderDialogShown = false"
+  >
+    <div>
+      <label for="custom-fodder-dialog-fodder-name">{{ t('dialog.custom-fodder.name') }}</label>
+      <input
+        id="custom-fodder-dialog-fodder-name"
+        class="appearance-none w-30 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 rounded shadow leading-tight"
+        type="text"
+        name="name"
+      >
+    </div>
+    <div class="mt-2">
+      <label for="custom-fodder-dialog-fodder-exp">{{ t('dialog.custom-fodder.exp') }}</label>
+      <input
+        id="custom-fodder-dialog-fodder-exp"
+        class="appearance-none w-30 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 rounded shadow leading-tight"
+        type="number"
+        name="exp"
+        min="0"
+        step="1"
+      >
+    </div>
+  </AppDialog>
 </template>
 
 <style scoped>
