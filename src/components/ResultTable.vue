@@ -55,6 +55,7 @@ export default defineComponent({
   },
   setup(props) {
     const rarityStore = useRarityStore();
+    const intl = new Intl.NumberFormat('en', { maximumFractionDigits: 3, useGrouping: false });
 
     const currentRarityExpTable = computed(() => RARITY_EXP_TABLE[rarityStore.rarityName]);
     const currentExp = computed(() => {
@@ -68,7 +69,7 @@ export default defineComponent({
     });
     const restExpToTargetLevel = computed(() => {
       const fodderExp = props.sumOfFodderExp * (props.hasBonus ? 1.1 : 1);
-      return expToTargetLevel.value - fodderExp;
+      return intl.format(expToTargetLevel.value - fodderExp);
     });
 
     return {
