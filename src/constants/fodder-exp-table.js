@@ -46,11 +46,6 @@ export const fodderSprite = Object.freeze({
   exp: 10000,
 });
 
-export const megaFodderSprite = Object.freeze({
-  name: 'mega-fodder-sprite',
-  exp: 150000,
-});
-
 export default Object.freeze({
   mismatchedFairy,
   matchedFairy,
@@ -61,5 +56,4 @@ export default Object.freeze({
   platinumSprite,
   blackSprite,
   fodderSprite,
-  megaFodderSprite,
 });
