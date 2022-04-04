@@ -28,6 +28,7 @@ import { defineComponent, ref } from 'vue';
 import IcRoundCheck from './IcRoundCheck.vue';
 
 export default defineComponent({
+  name: 'InputCheckbox',
   components: {
     IcRoundCheck,
   },

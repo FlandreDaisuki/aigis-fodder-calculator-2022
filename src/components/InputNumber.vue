@@ -33,6 +33,7 @@
 import { computed, defineComponent, toRef } from 'vue';
 
 export default defineComponent({
+  name: 'InputNumber',
   props: {
     inputId: {
       type: String,

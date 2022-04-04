@@ -31,6 +31,7 @@ import { useStore as useRarityStore } from '../stores/rarity';
 import RARITY_EXP_TABLE from '../constants/rarity-exp-table';
 
 export default defineComponent({
+  name: 'ResultTable',
   props: {
     currentLevel: {
       type: Number,
