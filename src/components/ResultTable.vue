@@ -55,6 +55,7 @@ export default defineComponent({
   },
   setup(props) {
     const rarityStore = useRarityStore();
+
     const currentRarityExpTable = computed(() => RARITY_EXP_TABLE[rarityStore.rarityName]);
     const currentExp = computed(() => {
       return currentRarityExpTable.value[props.currentLevel] - props.expToNextLevel;
@@ -69,6 +70,7 @@ export default defineComponent({
       const fodderExp = props.sumOfFodderExp * (props.hasBonus ? 1.1 : 1);
       return expToTargetLevel.value - fodderExp;
     });
+
     return {
       ...useI18n(),
       currentExp,

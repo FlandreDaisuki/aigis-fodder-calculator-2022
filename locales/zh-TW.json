@@ -16,5 +16,16 @@
   "table.exp-to-target-level":"還要多少經驗",
   "table.fodder-exp":"飼料經驗",
   "table.fodder-bonus":"育成聖靈",
-  "table.fodder-exp-to-target-level":"還要餵多少飼料經驗"
+  "table.fodder-exp-to-target-level":"還要餵多少飼料經驗",
+
+  "mismatched-fairy": "異色聖靈 (500)",
+  "matched-fairy": "同色聖靈 (1000)",
+  "white-bucket": "白胖 (5000)",
+  "black-bucket": "黑胖 (40000)",
+  "micro-gold-sprite": "微金祝 (1750)",
+  "gold-sprite-or-loot-sprite": "小金祝或轉蛋祝 (18000)",
+  "platinum-sprite": "小白祝 (19000)",
+  "black-sprite": "小黑祝 (20000)",
+  "fodder-sprite": "小祝聖 (10000)",
+  "mega-fodder-sprite": "哈比 (150000)"
 }

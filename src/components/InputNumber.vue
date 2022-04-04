@@ -97,4 +97,9 @@ input[type="number"].appearance-none {
   -moz-appearance: textfield;
   appearance: textfield;
 }
+input[list]::-webkit-calendar-picker-indicator {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none !important;
+}
 </style>
