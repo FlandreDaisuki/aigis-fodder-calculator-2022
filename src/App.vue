@@ -6,6 +6,7 @@ import { useStore as useFodderStore } from './stores/fodder';
 
 import RaritySelect from './components/RaritySelect.vue';
 import InputNumber from './components/InputNumber.vue';
+import InputCheckbox from './components/InputCheckbox.vue';
 import ResultTable from './components/ResultTable.vue';
 import IcRoundExposurePlus1 from './components/IcRoundExposurePlus1.vue';
 import IcRoundExposureNeg1 from './components/IcRoundExposureNeg1.vue';
@@ -15,6 +16,7 @@ export default defineComponent({
   components: {
     RaritySelect,
     InputNumber,
+    InputCheckbox,
     ResultTable,
     IcRoundExposurePlus1,
     IcRoundExposureNeg1,
@@ -27,6 +29,8 @@ export default defineComponent({
     const currentLevel = ref(0);
     const expToNextLevel = ref(0);
     const targetLevel = ref(1);
+    const hasBonus = ref(false);
+    const isDisabledFodderHidden = ref(false);
     const isFodderDisabled = (fodder) => {
       return Number.isInteger(fodder.rarity) && fodder.rarity !== rarityStore.rarity;
     };
@@ -38,6 +42,8 @@ export default defineComponent({
       currentLevel,
       expToNextLevel,
       targetLevel,
+      hasBonus,
+      isDisabledFodderHidden,
       isFodderDisabled,
     };
   },
@@ -75,10 +81,21 @@ export default defineComponent({
       :min="1"
       :max="rarityStore.maxTargetLevel"
     />
+    <InputCheckbox
+      v-model="hasBonus"
+      input-id="bonus-sprite"
+      :label="t('bonus-sprite')"
+    />
+    <InputCheckbox
+      v-model="isDisabledFodderHidden"
+      input-id="hide-disabled-fodder"
+      :label="t('hide-disabled-fodder')"
+    />
   </div>
   <hr class="my-2">
   <ResultTable
     class="mx-auto"
+    :has-bonus="hasBonus"
     :sum-of-fodder-exp="fodderStore.sumOfFodderExp"
     :current-level="currentLevel"
     :exp-to-next-level="expToNextLevel"
@@ -91,30 +108,32 @@ export default defineComponent({
       v-for="fodder in fodderStore.sortedFodders"
       :key="fodder.id"
     >
-      <label :for="fodder.id">{{ t(fodder.name) }}</label>
-      <div class="inline-flex items-center space-x-2">
-        <button
-          class="bg-white border border-gray-400 enabled:hover:border-gray-500 disabled:text-gray-500 p-2 rounded shadow touch-action-none"
-          :disabled="isFodderDisabled(fodder)"
-          @click="fodderStore.decFodder(fodder)"
-        >
-          <IcRoundExposureNeg1 />
-        </button>
-        <input
-          :id="fodder.id"
-          v-model="fodder.count"
-          class="w-20 appearance-none bg-white border border-gray-400 enabled:hover:border-gray-500 disabled:text-gray-400 px-4 py-2 rounded shadow leading-tight"
-          type="number"
-          :disabled="isFodderDisabled(fodder)"
-        >
-        <button
-          class="bg-white border border-gray-400 enabled:hover:border-gray-500 disabled:text-gray-500 p-2 rounded shadow touch-action-none"
-          :disabled="isFodderDisabled(fodder)"
-          @click="fodderStore.incFodder(fodder)"
-        >
-          <IcRoundExposurePlus1 />
-        </button>
-      </div>
+      <template v-if="!isDisabledFodderHidden || !isFodderDisabled(fodder)">
+        <label :for="fodder.id">{{ t(fodder.name) }}</label>
+        <div class="inline-flex items-center space-x-2">
+          <button
+            class="bg-white border border-gray-400 enabled:hover:border-gray-500 disabled:text-gray-500 p-2 rounded shadow touch-action-none"
+            :disabled="isFodderDisabled(fodder)"
+            @click="fodderStore.decFodder(fodder)"
+          >
+            <IcRoundExposureNeg1 />
+          </button>
+          <input
+            :id="fodder.id"
+            v-model="fodder.count"
+            class="w-20 appearance-none bg-white border border-gray-400 enabled:hover:border-gray-500 disabled:text-gray-400 px-4 py-2 rounded shadow leading-tight"
+            type="number"
+            :disabled="isFodderDisabled(fodder)"
+          >
+          <button
+            class="bg-white border border-gray-400 enabled:hover:border-gray-500 disabled:text-gray-500 p-2 rounded shadow touch-action-none"
+            :disabled="isFodderDisabled(fodder)"
+            @click="fodderStore.incFodder(fodder)"
+          >
+            <IcRoundExposurePlus1 />
+          </button>
+        </div>
+      </template>
     </template>
   </fieldset>
 </template>
