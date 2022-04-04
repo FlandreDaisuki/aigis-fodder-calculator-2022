@@ -195,7 +195,7 @@ export default defineComponent({
       <label for="custom-fodder-dialog-fodder-name">{{ t('dialog.custom-fodder.name') }}</label>
       <input
         id="custom-fodder-dialog-fodder-name"
-        class="appearance-none w-30 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 rounded shadow leading-tight"
+        class="appearance-none w-40 bg-white border border-gray-400 hover:border-gray-500 px-2 py-1 rounded shadow leading-tight"
         type="text"
         name="name"
       >
@@ -204,7 +204,7 @@ export default defineComponent({
       <label for="custom-fodder-dialog-fodder-exp">{{ t('dialog.custom-fodder.exp') }}</label>
       <input
         id="custom-fodder-dialog-fodder-exp"
-        class="appearance-none w-30 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 rounded shadow leading-tight"
+        class="appearance-none w-40 bg-white border border-gray-400 hover:border-gray-500 px-2 py-1 rounded shadow leading-tight"
         type="number"
         name="exp"
         min="0"
