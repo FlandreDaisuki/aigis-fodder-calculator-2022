@@ -10,17 +10,20 @@ jobs:
     runs-on: ubuntu-latest
     name: Build & Deploy page
     steps:
+      # https://github.com/marketplace/actions/checkout
       - uses: actions/checkout@v2
 
+      # https://github.com/marketplace/actions/cache
       - name: Cache pnpm modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.pnpm-store
           key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-
 
-      - uses: pnpm/action-setup@v2.1.0
+      # https://github.com/marketplace/actions/setup-pnpm
+      - uses: pnpm/action-setup@v2
         with:
           version: 6.32.4
           run_install: true
@@ -28,6 +31,7 @@ jobs:
       - name: Build web page
         run: pnpm build
 
+      # https://github.com/marketplace/actions/github-pages-action
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
