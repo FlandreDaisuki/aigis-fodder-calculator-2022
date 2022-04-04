@@ -2,7 +2,7 @@
 import { defineComponent, ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { clamp } from 'lodash';
-import { useStorage } from '@vueuse/core';
+import { useStorage, useTitle } from '@vueuse/core';
 import { useStore as useRarityStore } from './stores/rarity';
 import { useStore as useFodderStore } from './stores/fodder';
 
@@ -28,6 +28,9 @@ export default defineComponent({
     MdiTrashCan,
   },
   setup() {
+    const { t } = useI18n();
+    useTitle(t('title'));
+
     const rarityStore = useRarityStore();
     const fodderStore = useFodderStore();
 
