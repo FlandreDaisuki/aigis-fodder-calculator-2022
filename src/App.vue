@@ -2,6 +2,7 @@
 import { defineComponent, ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { clamp } from 'lodash';
+import { useStorage } from '@vueuse/core';
 import { useStore as useRarityStore } from './stores/rarity';
 import { useStore as useFodderStore } from './stores/fodder';
 
@@ -23,7 +24,6 @@ export default defineComponent({
     IcRoundExposureNeg1,
   },
   setup() {
-    // const { t } = useI18n();
     const rarityStore = useRarityStore();
     const fodderStore = useFodderStore();
 
@@ -35,8 +35,8 @@ export default defineComponent({
       targetLevel.value = clamp(rarityStore.maxTargetLevel, 1, rarityStore.maxTargetLevel);
     });
 
-    const hasBonus = ref(false);
-    const isDisabledFodderHidden = ref(false);
+    const hasBonus = useStorage('has-bonus', false);
+    const shouldHideDisabledFodders = useStorage('should-hide-disabled-fodders', false);
     const isFodderDisabled = (fodder) => {
       return Number.isInteger(fodder.rarity) && fodder.rarity !== rarityStore.rarity;
     };
@@ -49,7 +49,7 @@ export default defineComponent({
       expToNextLevel,
       targetLevel,
       hasBonus,
-      isDisabledFodderHidden,
+      shouldHideDisabledFodders,
       isFodderDisabled,
     };
   },
@@ -93,7 +93,7 @@ export default defineComponent({
       :label="t('bonus-sprite')"
     />
     <InputCheckbox
-      v-model="isDisabledFodderHidden"
+      v-model="shouldHideDisabledFodders"
       input-id="hide-disabled-fodder"
       :label="t('hide-disabled-fodder')"
     />
@@ -114,7 +114,7 @@ export default defineComponent({
       v-for="fodder in fodderStore.sortedFodders"
       :key="fodder.id"
     >
-      <template v-if="!isDisabledFodderHidden || !isFodderDisabled(fodder)">
+      <template v-if="!shouldHideDisabledFodders || !isFodderDisabled(fodder)">
         <label :for="fodder.id">{{ t(fodder.name) }}</label>
         <div class="inline-flex items-center space-x-2">
           <button
