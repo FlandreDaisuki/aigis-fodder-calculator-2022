@@ -49,5 +49,9 @@ export const useStore = defineStore('rarity', {
         'black',
       ][state.rarity - 1];
     },
+    candidateLevels() {
+      return [30, 55, 60, 70, 80, 90, 99]
+        .filter((level) => level <= this.maxTargetLevel);
+    },
   },
 });

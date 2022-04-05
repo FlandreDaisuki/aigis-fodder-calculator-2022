@@ -103,13 +103,12 @@ export default defineComponent({
       input-id="exp-to-next-level"
       :label="t('exp-to-next-level')"
     />
-    <!-- TODO: candidates -->
     <InputNumber
       v-model="targetLevel"
       class="w-30"
       input-id="target-level"
       :label="t('target-level')"
-      :candidates="[30,70,80,99]"
+      :candidates="rarityStore.candidateLevels"
       :min="1"
       :max="rarityStore.maxTargetLevel"
     />
