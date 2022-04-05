@@ -69,8 +69,8 @@ export default defineComponent({
       dialogEl,
       submit: () => {
         emit('submit', {
-          name: formEl.value?.name?.value,
-          exp: formEl.value?.exp?.valueAsNumber,
+          name: formEl.value?.elements?.['name']?.value,
+          exp: formEl.value?.elements?.['exp']?.valueAsNumber,
         });
       },
       cancel: () => emit('cancel'),
