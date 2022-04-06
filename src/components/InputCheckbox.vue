@@ -15,9 +15,9 @@
       :for="inputId"
       class="select-none block w-6 h-6 mx-auto bg-white border border-gray-400 hover:border-gray-500 rounded shadow"
     >
-      <IcRoundCheck
+      <i
         v-show="inputValue"
-        class="h-full w-full"
+        class="i-ic-round-check h-full w-full"
       />
     </label>
   </div>
@@ -25,13 +25,9 @@
 
 <script>
 import { defineComponent, ref } from 'vue';
-import IcRoundCheck from './IcRoundCheck.vue';
 
 export default defineComponent({
   name: 'InputCheckbox',
-  components: {
-    IcRoundCheck,
-  },
   props: {
     inputId: {
       type: String,

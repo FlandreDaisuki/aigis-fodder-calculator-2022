@@ -10,9 +10,6 @@ import RaritySelect from './components/RaritySelect.vue';
 import InputNumber from './components/InputNumber.vue';
 import InputCheckbox from './components/InputCheckbox.vue';
 import ResultTable from './components/ResultTable.vue';
-import IcRoundExposurePlus1 from './components/IcRoundExposurePlus1.vue';
-import IcRoundExposureNeg1 from './components/IcRoundExposureNeg1.vue';
-import MdiTrashCan from './components/MdiTrashCan.vue';
 import AppDialog from './components/AppDialog.vue';
 
 export default defineComponent({
@@ -22,10 +19,7 @@ export default defineComponent({
     InputNumber,
     InputCheckbox,
     ResultTable,
-    IcRoundExposurePlus1,
-    IcRoundExposureNeg1,
     AppDialog,
-    MdiTrashCan,
   },
   setup() {
     const { t } = useI18n();
@@ -144,20 +138,20 @@ export default defineComponent({
           :for="fodder.id"
           class="inline-flex"
         >
-          <MdiTrashCan
+          <i
             v-if="isCustomFodder(fodder)"
-            class="inline-block h-6 w-6 mr-4 text-red-500 hover:text-red-400 hover:cursor-pointer"
+            class="i-mdi-trash-can h-6 w-6 mr-4 text-red-500 hover:text-red-400 hover:cursor-pointer"
             @click="fodderStore.removeCustomFodder(fodder)"
           />
           <span>{{ fodder.nameDisplay ?? t(fodder.name) }} ({{ fodder.exp }})</span>
         </label>
         <div class="inline-flex items-center space-x-2">
           <button
-            class="bg-white border border-gray-400 enabled:hover:border-gray-500 disabled:text-gray-500 p-2 rounded shadow touch-action-none"
+            class="inline-flex bg-white border border-gray-400 enabled:hover:border-gray-500 disabled:text-gray-500 p-2 rounded shadow touch-action-none"
             :disabled="isFodderDisabled(fodder)"
             @click="fodderStore.decFodder(fodder)"
           >
-            <IcRoundExposureNeg1 />
+            <i class="i-ic-round-exposure-neg-1" />
           </button>
           <input
             :id="fodder.id"
@@ -167,11 +161,11 @@ export default defineComponent({
             :disabled="isFodderDisabled(fodder)"
           >
           <button
-            class="bg-white border border-gray-400 enabled:hover:border-gray-500 disabled:text-gray-500 p-2 rounded shadow touch-action-none"
+            class="inline-flex bg-white border border-gray-400 enabled:hover:border-gray-500 disabled:text-gray-500 p-2 rounded shadow touch-action-none"
             :disabled="isFodderDisabled(fodder)"
             @click="fodderStore.incFodder(fodder)"
           >
-            <IcRoundExposurePlus1 />
+            <i class="i-ic-round-exposure-plus-1" />
           </button>
         </div>
       </template>

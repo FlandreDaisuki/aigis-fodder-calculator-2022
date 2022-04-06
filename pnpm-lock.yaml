@@ -1,6 +1,8 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@iconify-json/ic': ^1.1.2
+  '@iconify-json/mdi': ^1.1.9
   '@intlify/vite-plugin-vue-i18n': ^3.3.1
   '@types/lodash-es': ^4.17.6
   '@unocss/reset': ^0.30.8
@@ -26,6 +28,8 @@ dependencies:
   vue-i18n: 9.1.9_vue@3.2.31
 
 devDependencies:
+  '@iconify-json/ic': 1.1.2
+  '@iconify-json/mdi': 1.1.9
   '@intlify/vite-plugin-vue-i18n': 3.3.1_vite@2.9.1+vue-i18n@9.1.9
   '@types/lodash-es': 4.17.6
   '@unocss/reset': 0.30.8
@@ -89,6 +93,18 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
+  /@iconify-json/ic/1.1.2:
+    resolution: {integrity: sha512-OXLXNMECrwg1N7HqG9z+p8eF9NleoV5tZvIH/W3ip3HdZsg1VbEWl0RpI9K5VJjT95xVn2n+gcAgLPD5HNAsXg==}
+    dependencies:
+      '@iconify/types': 1.1.0
+    dev: true
+
+  /@iconify-json/mdi/1.1.9:
+    resolution: {integrity: sha512-iZY3d7nLmEhSxLU5YBHIxVVPySqNjj6zYcf448TXGBPp2PyToITCOuLEaub0rQ9jBAPOlupQsuPX9ylBfgIJ1w==}
+    dependencies:
+      '@iconify/types': 1.1.0
+    dev: true
+
   /@iconify/types/1.1.0:
     resolution: {integrity: sha512-Jh0llaK2LRXQoYsorIH8maClebsnzTcve+7U3rQUSnC11X4jtPnFuyatqFLvMxZ8MLG8dB4zfHsbPfuvxluONw==}
     dev: true
@@ -106,8 +122,8 @@ packages:
       - supports-color
     dev: true
 
-  /@intlify/bundle-utils/2.2.1_vue-i18n@9.1.9:
-    resolution: {integrity: sha512-8n8zhYEKypS+KP22KUAC6BnQifJDDWUGcn3OVPqsThqMMucU22MShGvOuiKqQ4AeT7XQ5O4pudlJmxv3L91JrQ==}
+  /@intlify/bundle-utils/3.0.0_vue-i18n@9.1.9:
+    resolution: {integrity: sha512-y43Z5Q3ZJvxqtD8xUH6U3yrlZeay7ZTqkzv1GQ4b0mGQtk5uptOT9Ra4qvGuUv8QyPQsortrA/OHWUD5ax5ZNQ==}
     engines: {node: '>= 12'}
     peerDependencies:
       petite-vue-i18n: '*'
@@ -199,7 +215,7 @@ packages:
       vue-i18n:
         optional: true
     dependencies:
-      '@intlify/bundle-utils': 2.2.1_vue-i18n@9.1.9
+      '@intlify/bundle-utils': 3.0.0_vue-i18n@9.1.9
       '@intlify/shared': 9.2.0-beta.34
       '@rollup/pluginutils': 4.2.0
       debug: 4.3.4

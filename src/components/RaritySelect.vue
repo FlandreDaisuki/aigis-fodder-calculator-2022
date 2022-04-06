@@ -16,8 +16,8 @@
         </option>
       </select>
       <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-        <IcRoundKeyboardArrowDown
-          class="h-6 w-6 text-gray-500"
+        <i
+          class="i-ic-round-keyboard-arrow-down h-6 w-6 text-gray-500"
           aria-hidden="true"
         />
       </div>
@@ -29,14 +29,10 @@
 import { defineComponent, ref, watchEffect } from 'vue';
 import { useI18n } from 'vue-i18n';
 
-import IcRoundKeyboardArrowDown from './IcRoundKeyboardArrowDown.vue';
 import { useStore as useRarityStore } from '../stores/rarity';
 
 export default defineComponent({
   name: 'RaritySelect',
-  components: {
-    IcRoundKeyboardArrowDown,
-  },
   props: {
     modelValue: {
       type: Number,

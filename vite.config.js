@@ -4,6 +4,7 @@ import Vue from '@vitejs/plugin-vue';
 import VueI18n from '@intlify/vite-plugin-vue-i18n';
 import Inspect from 'vite-plugin-inspect';
 import Unocss from 'unocss/vite';
+import { presetIcons, presetWind } from 'unocss';
 
 export default defineConfig({
   resolve: {
@@ -19,7 +20,16 @@ export default defineConfig({
     }),
 
     // https://github.com/antfu/unocss
-    Unocss(),
+    Unocss({
+      presets: [
+        presetWind(),
+        presetIcons({
+          extraProperties: {
+            display: 'inline-block',
+          },
+        }),
+      ],
+    }),
 
     // https://github.com/antfu/vite-plugin-pwa
     // VitePWA({
