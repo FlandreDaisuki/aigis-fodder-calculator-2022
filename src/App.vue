@@ -1,7 +1,6 @@
 <script>
 import { defineComponent, ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { clamp } from 'lodash';
 import { useStorage, useTitle } from '@vueuse/core';
 import { useStore as useRarityStore } from './stores/rarity';
 import { useStore as useFodderStore } from './stores/fodder';
@@ -33,7 +32,8 @@ export default defineComponent({
 
     const targetLevel = ref(rarityStore.maxTargetLevel);
     watch(() => rarityStore.rarity, () => {
-      targetLevel.value = clamp(rarityStore.maxTargetLevel, 1, rarityStore.maxTargetLevel);
+      targetLevel.value = rarityStore.maxTargetLevel;
+      fodderStore.resetCountByRarity(rarityStore.rarity);
     });
 
     const hasBonus = useStorage('has-bonus', false);

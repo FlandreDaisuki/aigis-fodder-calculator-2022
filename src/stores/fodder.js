@@ -72,5 +72,12 @@ export const useStore = defineStore('fodder', {
         found.count = Math.max(0, found.count - 1);
       }
     },
+    resetCountByRarity(rarity) {
+      for (const fodder of this.fodders) {
+        if (Number.isInteger(fodder.rarity) && fodder.rarity !== rarity) {
+          fodder.count = 0;
+        }
+      }
+    },
   },
 });
