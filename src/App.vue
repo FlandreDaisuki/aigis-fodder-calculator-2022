@@ -158,6 +158,7 @@ export default defineComponent({
             v-model="fodder.count"
             class="w-20 appearance-none bg-white border border-gray-400 enabled:hover:border-gray-500 disabled:text-gray-400 px-4 py-2 rounded shadow leading-tight"
             type="number"
+            min="0"
             :disabled="isFodderDisabled(fodder)"
           >
           <button
