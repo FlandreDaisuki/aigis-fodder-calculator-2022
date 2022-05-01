@@ -1,0 +1,40 @@
+{
+  "title": "千年戦争アイギス 経験値計算機 2022",
+
+  "rarity.iron": "☆1 鉄",
+  "rarity.bronze": "☆2 銅",
+  "rarity.silver": "☆3 銀",
+  "rarity.gold": "☆4 金",
+  "rarity.platinum": "☆5 白金",
+  "rarity.black": "☆6 黒",
+
+  "rarity-select": "レアリティ：",
+  "current-level": "現在レベル：",
+  "exp-to-next-level": "次のレベルまで：",
+  "target-level": "目標レベル：",
+  "bonus-sprite": "育成聖霊：",
+  "hide-disabled-fodder": "条件に合わない餌を隠す：",
+
+  "table.exp-to-target-level":"目標までの総経験値",
+  "table.fodder-exp":"餌経験値",
+  "table.fodder-bonus":"育成聖霊",
+  "table.fodder-exp-to-target-level":"目標までの餌経験値",
+
+  "mismatched-fairy": "異色聖霊",
+  "matched-fairy": "同色聖靈",
+  "white-bucket": "白鎧",
+  "black-bucket": "黒鎧",
+  "silver-sprite": "アムール",
+  "micro-gold-sprite": "プレジール",
+  "gold-sprite-or-loot-sprite": "アレグリア／プレーゼ",
+  "platinum-sprite": "フロイデ",
+  "black-sprite": "ファラハ",
+  "fodder-sprite": "プラセル",
+
+  "cancel": "キャンセル",
+  "submit": "確定",
+  "add-custom-fodder": "カスタマイズ",
+
+  "dialog.custom-fodder.exp": "経験値：",
+  "dialog.custom-fodder.name": "お名前："
+}

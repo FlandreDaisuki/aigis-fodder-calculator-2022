@@ -93,7 +93,7 @@ export default defineComponent({
     />
     <InputNumber
       v-model="expToNextLevel"
-      class="w-30"
+      class="w-36"
       input-id="exp-to-next-level"
       :label="t('exp-to-next-level')"
     />
