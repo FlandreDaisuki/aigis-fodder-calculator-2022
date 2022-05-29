@@ -140,7 +140,7 @@ export default defineComponent({
         >
           <i
             v-if="isCustomFodder(fodder)"
-            class="i-mdi-trash-can h-6 w-6 mr-4 text-red-500 hover:text-red-400 hover:cursor-pointer"
+            class="i-mdi-trash-can h-6 w-6 mr-4 text-red-500 hover:text-red-400 hover:cursor-pointer select-none"
             @click="fodderStore.removeCustomFodder(fodder)"
           />
           <span>{{ fodder.nameDisplay ?? t(fodder.name) }} ({{ fodder.exp }})</span>
@@ -151,7 +151,7 @@ export default defineComponent({
             :disabled="isFodderDisabled(fodder)"
             @click="fodderStore.decFodder(fodder)"
           >
-            <i class="i-ic-round-exposure-neg-1" />
+            <i class="i-ic-round-exposure-neg-1 select-none" />
           </button>
           <input
             :id="fodder.id"
@@ -166,7 +166,7 @@ export default defineComponent({
             :disabled="isFodderDisabled(fodder)"
             @click="fodderStore.incFodder(fodder)"
           >
-            <i class="i-ic-round-exposure-plus-1" />
+            <i class="i-ic-round-exposure-plus-1 select-none" />
           </button>
         </div>
       </template>

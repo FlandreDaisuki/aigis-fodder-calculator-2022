@@ -17,7 +17,7 @@
       </select>
       <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
         <i
-          class="i-ic-round-keyboard-arrow-down h-6 w-6 text-gray-500"
+          class="i-ic-round-keyboard-arrow-down h-6 w-6 text-gray-500 select-none"
           aria-hidden="true"
         />
       </div>

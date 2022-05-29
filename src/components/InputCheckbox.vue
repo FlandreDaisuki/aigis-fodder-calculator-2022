@@ -17,7 +17,7 @@
     >
       <i
         v-show="inputValue"
-        class="i-ic-round-check h-full w-full"
+        class="i-ic-round-check h-full w-full select-none"
       />
     </label>
   </div>
