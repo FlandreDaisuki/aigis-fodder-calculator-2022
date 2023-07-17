@@ -52,15 +52,12 @@ export const fodderSprite = Object.freeze({
   exp: 10000,
 });
 
-export default Object.freeze({
-  mismatchedFairy,
-  matchedFairy,
-  whiteBucket,
-  blackBucket,
-  silverSprite,
-  microGoldSprite,
-  goldSpriteOrLootSprite,
-  platinumSprite,
-  blackSprite,
-  fodderSprite,
+export const whiteEmperor = Object.freeze({
+  name: 'white-emperor',
+  exp: 13000,
+});
+
+export const whiteEmperorSquare = Object.freeze({
+  name: 'white-emperor-square',
+  exp: 20360,
 });

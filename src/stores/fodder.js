@@ -1,7 +1,6 @@
 import { useStorage } from '@vueuse/core';
 import { defineStore } from 'pinia';
-// import { useI18n } from 'vue-i18n';
-import FODDER_EXP_TABLE from '../constants/fodder-exp-table';
+import * as FODDER_EXP_TABLE from '../constants/fodder-exp-table';
 
 /** https://developer.mozilla.org/en-US/docs/Web/API/btoa#unicode_strings */
 const toBinary = (text) => {

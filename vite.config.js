@@ -4,7 +4,7 @@ import Vue from '@vitejs/plugin-vue';
 import VueI18n from '@intlify/vite-plugin-vue-i18n';
 import Inspect from 'vite-plugin-inspect';
 import Unocss from 'unocss/vite';
-import { presetIcons, presetWind } from 'unocss';
+import { presetIcons, presetUno } from 'unocss';
 
 export default defineConfig({
   resolve: {
@@ -22,7 +22,7 @@ export default defineConfig({
     // https://github.com/antfu/unocss
     Unocss({
       presets: [
-        presetWind(),
+        presetUno(),
         presetIcons({
           extraProperties: {
             display: 'inline-block',
