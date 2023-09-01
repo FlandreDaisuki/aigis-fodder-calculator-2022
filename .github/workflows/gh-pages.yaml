@@ -11,7 +11,7 @@ jobs:
     name: Build & Deploy page
     steps:
       # https://github.com/marketplace/actions/checkout
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       # https://github.com/marketplace/actions/cache
       - name: Cache pnpm modules
@@ -25,7 +25,7 @@ jobs:
       # https://github.com/marketplace/actions/setup-pnpm
       - uses: pnpm/action-setup@v2
         with:
-          version: 6.32.4
+          version: 8.7.1
           run_install: true
 
       - name: Build web page

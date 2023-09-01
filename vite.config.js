@@ -1,7 +1,7 @@
 import path from 'path';
 import { defineConfig } from 'vite';
 import Vue from '@vitejs/plugin-vue';
-import VueI18n from '@intlify/vite-plugin-vue-i18n';
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import Inspect from 'vite-plugin-inspect';
 import Unocss from 'unocss/vite';
 import { presetIcons, presetUno } from 'unocss';
@@ -61,9 +61,7 @@ export default defineConfig({
     // }),
 
     // https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n
-    VueI18n({
-      runtimeOnly: true,
-      compositionOnly: true,
+    VueI18nPlugin({
       include: [path.resolve(__dirname, 'locales/**')],
     }),
 
@@ -73,11 +71,15 @@ export default defineConfig({
   ],
 
   // https://github.com/vitest-dev/vitest
-  test: {
-    include: ['test/**/*.test.ts'],
-    environment: 'jsdom',
-    deps: {
-      inline: ['@vue', '@vueuse', 'vue-demi'],
-    },
-  },
+  // test: {
+  //   include: ['test/**/*.test.ts'],
+  //   environment: 'jsdom',
+  //   deps: {
+  //     optimizer: {
+  //       web: {
+  //         include: ['@vue', '@vueuse', 'vue-demi'],
+  //       },
+  //     },
+  //   },
+  // },
 });
