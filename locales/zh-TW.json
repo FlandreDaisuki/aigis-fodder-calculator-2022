@@ -5,7 +5,7 @@
   "rarity.bronze": "☆2 銅",
   "rarity.silver": "☆3 銀",
   "rarity.gold": "☆4 金",
-  "rarity.platinum": "☆5 白",
+  "rarity.platinum": "☆5 白／藍",
   "rarity.black": "☆6 黑",
 
   "rarity-select": "稀有度：",
@@ -27,7 +27,7 @@
   "silver-sprite": "小銀祝",
   "micro-gold-sprite": "微金祝",
   "gold-sprite-or-loot-sprite": "小金祝或轉蛋祝",
-  "platinum-sprite": "小白祝",
+  "platinum-sprite": "小白祝或小藍祝",
   "black-sprite": "小黑祝",
   "fodder-sprite": "小祝聖",
   "white-emperor": "白皇 Lv1",

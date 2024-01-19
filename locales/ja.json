@@ -5,7 +5,7 @@
   "rarity.bronze": "☆2 銅",
   "rarity.silver": "☆3 銀",
   "rarity.gold": "☆4 金",
-  "rarity.platinum": "☆5 白金",
+  "rarity.platinum": "☆5 白金／青",
   "rarity.black": "☆6 黒",
 
   "rarity-select": "レアリティ：",
@@ -27,7 +27,7 @@
   "silver-sprite": "アムール",
   "micro-gold-sprite": "プレジール",
   "gold-sprite-or-loot-sprite": "アレグリア／プレーゼ",
-  "platinum-sprite": "フロイデ",
+  "platinum-sprite": "フロイデ／リーベ",
   "black-sprite": "ファラハ",
   "fodder-sprite": "プラセル",
   "white-emperor": "皇帝 Lv1",
