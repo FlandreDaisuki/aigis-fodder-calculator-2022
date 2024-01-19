@@ -1,6 +1,6 @@
 {
   "name": "aigis-fodder-calculator-2022",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "scripts": {
     "build": "vite build",
     "dev": "vite --host --port 4000 --open",
@@ -9,23 +9,27 @@
   },
   "author": "FlandreDaisuki",
   "license": "ISC",
+  "type": "module",
+  "peerDependencies": {
+    "typescript": "^5.3.3"
+  },
   "dependencies": {
-    "@vueuse/core": "^10.4.1",
-    "pinia": "^2.1.6",
-    "vue": "^3.3.4",
-    "vue-i18n": "^9.2.2"
+    "@vueuse/core": "^10.7.2",
+    "pinia": "^2.1.7",
+    "vue": "^3.3.15",
+    "vue-i18n": "^9.9.0"
   },
   "devDependencies": {
-    "@iconify-json/ic": "^1.1.14",
-    "@iconify-json/mdi": "^1.1.54",
-    "@intlify/unplugin-vue-i18n": "^0.13.0",
-    "@unocss/reset": "^0.55.4",
-    "@vitejs/plugin-vue": "^4.3.4",
-    "eslint": "^8.48.0",
-    "eslint-plugin-vue": "^9.17.0",
-    "pnpm": "^8.7.1",
-    "unocss": "^0.55.4",
-    "vite": "^4.4.9",
-    "vite-plugin-inspect": "^0.7.38"
+    "@iconify-json/ic": "^1.1.17",
+    "@iconify-json/mdi": "^1.1.64",
+    "@intlify/unplugin-vue-i18n": "^2.0.0",
+    "@types/bun": "^1.0.2",
+    "@unocss/reset": "^0.58.3",
+    "@vitejs/plugin-vue": "^5.0.3",
+    "eslint": "^8.56.0",
+    "eslint-plugin-vue": "^9.20.0",
+    "unocss": "^0.58.3",
+    "vite": "^5.0.12",
+    "vite-plugin-inspect": "^0.8.1"
   }
 }

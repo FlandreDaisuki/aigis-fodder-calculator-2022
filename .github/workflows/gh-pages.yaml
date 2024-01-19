@@ -11,25 +11,17 @@ jobs:
     name: Build & Deploy page
     steps:
       # https://github.com/marketplace/actions/checkout
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      # https://github.com/marketplace/actions/cache
-      - name: Cache pnpm modules
-        uses: actions/cache@v3
+      - uses: oven-sh/setup-bun@v1
         with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-
+          bun-version: latest
 
-      # https://github.com/marketplace/actions/setup-pnpm
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8.7.1
-          run_install: true
+      - name: Install deps
+        run: bun i
 
       - name: Build web page
-        run: pnpm build
+        run: bun run build
 
       # https://github.com/marketplace/actions/github-pages-action
       - uses: peaceiris/actions-gh-pages@v3
