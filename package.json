@@ -20,6 +20,8 @@
     "vue-i18n": "^10.0.4"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.13.0",
     "@iconify-json/ic": "^1.2.1",
     "@iconify-json/mdi": "^1.2.1",
     "@intlify/unplugin-vue-i18n": "^5.2.0",
@@ -28,6 +30,7 @@
     "@vitejs/plugin-vue": "^5.1.4",
     "eslint": "^9.13.0",
     "eslint-plugin-vue": "^9.29.1",
+    "globals": "^15.11.0",
     "unocss": "^0.63.6",
     "vite": "^5.4.9",
     "vite-plugin-inspect": "^0.8.7"
