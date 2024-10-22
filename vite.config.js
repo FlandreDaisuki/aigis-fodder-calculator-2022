@@ -1,7 +1,7 @@
 import path from 'path';
 import { defineConfig } from 'vite';
 import Vue from '@vitejs/plugin-vue';
-import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite';
 import Inspect from 'vite-plugin-inspect';
 import Unocss from 'unocss/vite';
 import { presetIcons, presetUno } from 'unocss';
