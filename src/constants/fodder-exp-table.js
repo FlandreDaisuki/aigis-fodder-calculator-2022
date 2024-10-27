@@ -5,7 +5,7 @@ export const mismatchedFairy = Object.freeze({
 
 export const matchedFairy = Object.freeze({
   name: 'matched-fairy',
-  exp: 1000,
+  exp: 1250,
 });
 
 export const whiteBucket = Object.freeze({
@@ -55,9 +55,4 @@ export const fodderSprite = Object.freeze({
 export const whiteEmperor = Object.freeze({
   name: 'white-emperor',
   exp: 13000,
-});
-
-export const whiteEmperorSquare = Object.freeze({
-  name: 'white-emperor-square',
-  exp: 20360,
 });

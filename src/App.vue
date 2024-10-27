@@ -77,13 +77,18 @@ export default defineComponent({
 </script>
 
 <template>
-  <h1 class="my-4 text-2xl text-center">
-    {{ t('title') }}
-  </h1>
+  <hgroup>
+    <h1 class="my-4 text-2xl text-center">
+      {{ t('title') }}
+    </h1>
+    <h2 class="text-right">{{ t('secondary-title') }}</h2>
+  </hgroup>
+
+
   <div class="text-center">
     <RaritySelect
       v-model="rarityStore.rarity"
-      class="w-30"
+      class="w-35"
     />
     <InputNumber
       v-model="currentLevel"
@@ -147,7 +152,7 @@ export default defineComponent({
         </label>
         <div class="inline-flex items-center space-x-2">
           <button
-            class="inline-flex bg-white border border-gray-400 enabled:hover:border-gray-500 disabled:text-gray-500 p-2 rounded shadow touch-action-none"
+            class="inline-flex bg-white border border-gray-400 enabled:hover:border-gray-500 disabled:text-gray-500 p-2 rounded shadow touch-action-none select-none"
             :disabled="isFodderDisabled(fodder)"
             @click="fodderStore.decFodder(fodder)"
           >
@@ -162,7 +167,7 @@ export default defineComponent({
             :disabled="isFodderDisabled(fodder)"
           >
           <button
-            class="inline-flex bg-white border border-gray-400 enabled:hover:border-gray-500 disabled:text-gray-500 p-2 rounded shadow touch-action-none"
+            class="inline-flex bg-white border border-gray-400 enabled:hover:border-gray-500 disabled:text-gray-500 p-2 rounded shadow touch-action-none select-none"
             :disabled="isFodderDisabled(fodder)"
             @click="fodderStore.incFodder(fodder)"
           >

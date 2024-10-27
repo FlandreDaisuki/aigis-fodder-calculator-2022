@@ -1,5 +1,6 @@
 {
   "title": "千年戦争アイギス 経験値計算機 2022",
+  "secondary-title": "v2024.08.29-CC廃止",
 
   "rarity.iron": "☆1 鉄",
   "rarity.bronze": "☆2 銅",
@@ -21,7 +22,7 @@
   "table.fodder-exp-to-target-level":"目標までの餌経験値",
 
   "mismatched-fairy": "異色聖霊",
-  "matched-fairy": "同色聖靈",
+  "matched-fairy": "同色聖霊",
   "white-bucket": "白鎧",
   "black-bucket": "黒鎧",
   "silver-sprite": "アムール",
