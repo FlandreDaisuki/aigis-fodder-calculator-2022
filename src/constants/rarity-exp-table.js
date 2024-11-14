@@ -29,6 +29,16 @@ export const iron = Object.freeze([
   2879,
   3103,
   3333,
+  3616,
+  3910,
+  4215,
+  4531,
+  4859,
+  5198,
+  5548,
+  5910,
+  6282,
+  6667,
 ]);
 
 export const bronze = Object.freeze([
@@ -72,6 +82,16 @@ export const bronze = Object.freeze([
   6501,
   6910,
   7334,
+  7955,
+  8601,
+  9272,
+  9968,
+  10690,
+  11435,
+  12206,
+  13001,
+  13822,
+  14666,
 ]);
 
 export const silver = Object.freeze([
